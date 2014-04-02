@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 names = ["Adam","Alex","Mariah","Martine","Columbus"]
+names.pop(2)
+del(names[1])
 for name in names:
     print name
 
