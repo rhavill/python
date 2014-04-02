@@ -10,7 +10,7 @@ for i in range(0, len(names)):
 print range(10)
 print range(6,10);
 print range(2,10,2)
-
+print '--'.join(names)
 inventory = {
     'gold' : 500,
     'pouch' : ['flint', 'twine', 'gemstone'], # Assigned a new list to 'pouch' key
