@@ -5,7 +5,8 @@ names.pop(2)
 del(names[1])
 for name in names:
     print name
-
+for i in range(0, len(names)):
+ 	print names[i]
 inventory = {
     'gold' : 500,
     'pouch' : ['flint', 'twine', 'gemstone'], # Assigned a new list to 'pouch' key
