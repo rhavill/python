@@ -7,6 +7,10 @@ for name in names:
     print name
 for i in range(0, len(names)):
  	print names[i]
+print range(10)
+print range(6,10);
+print range(2,10,2)
+
 inventory = {
     'gold' : 500,
     'pouch' : ['flint', 'twine', 'gemstone'], # Assigned a new list to 'pouch' key
