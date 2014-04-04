@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# just like PHP in_array
+print 3 in [1,2,3,4]
 names = ["Adam","Alex","Mariah","Martine","Columbus"]
 names.pop(2)
 del(names[1])
@@ -17,7 +19,7 @@ inventory = {
     'backpack' : ['xylophone','dagger', 'bedroll','bread loaf']
     
 }
-
+print inventory.items()
 webster = {
 	"Aardvark" : "A star of a popular children's cartoon show.",
     "Baa" : "The sound a goat makes.",
