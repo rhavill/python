@@ -20,6 +20,8 @@ inventory = {
     
 }
 print inventory.items()
+print inventory.keys()
+print inventory.values()
 webster = {
 	"Aardvark" : "A star of a popular children's cartoon show.",
     "Baa" : "The sound a goat makes.",
@@ -124,3 +126,31 @@ students = [lloyd, alice, tyler]
 class_average = get_class_average(students)      
 print class_average
 print get_letter_grade(class_average)
+
+evens_to_50 = [i for i in range(51) if i % 2 == 0]
+print evens_to_50
+
+l = [i ** 2 for i in range(1, 11)]
+# Should be [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+print l[2:9:2]
+
+to_five = ['A', 'B', 'C', 'D', 'E']
+
+print to_five[3:]
+# prints ['D', 'E'] 
+
+print to_five[:2]
+# prints ['A', 'B']
+
+print to_five[::2]
+# print ['A', 'C', 'E']
+
+#reverse
+my_list = range(1, 11)
+
+# Add your code below!
+print my_list[::-1]
+
+my_list = range(16)
+print filter(lambda x: x % 3 == 0, my_list)
