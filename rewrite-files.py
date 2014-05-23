@@ -17,6 +17,10 @@ remove_lines_with = [
 if len(sys.argv) > 2:
 	source_folder = sys.argv[1]
 	dest_folder = sys.argv[2]
+	if source_folder[len(source_folder)-1] != '/':
+		source_folder = source_folder + '/'
+	if dest_folder[len(dest_folder)-1] != '/':
+		dest_folder = dest_folder + '/'
 	file_list = []
 	for (dirpath, dirnames, filenames) in walk(source_folder):
 	    file_list.extend(filenames)
