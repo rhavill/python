@@ -2,16 +2,22 @@
 
 ''' 
 	This script rewrites all of the files in a directory. 
-	If a line in a file contains text that matches the list of strings in the "match" array,
-	that line is removed from the file.
+	If a line in a file contains text that matches the list of strings in the "match" array
+	and the line of text matches a regular expression, that line is removed from the file.
 '''
 
+import re
 import sys
 from os import walk
 
 remove_lines_with = [
-	'GROUP',
-	'HALF'
+	'FCAT_SKILL',
+	'TAKS_SKILL',
+	'ISAT_SKILL',
+	'MEAP_GLCE',
+	'CATEGORY',
+	'DOK_LEVEL',
+	'TEC_SKILL',
 ];
 
 if len(sys.argv) > 2:
@@ -31,7 +37,8 @@ if len(sys.argv) > 2:
 			for line in read_file:
 				ignore_line = False
 				for i in range(len(remove_lines_with)):
-					if remove_lines_with[i] in line:
+					match = re.search("^\s*;*\s*" + remove_lines_with[i], line);
+					if match:
 						ignore_line = True
 						break
 				if not ignore_line:
