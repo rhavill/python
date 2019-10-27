@@ -8,8 +8,7 @@
 
 import re
 import sys
-from os import walk
-from shutil import copyfile
+from os import walk, rename
 
 if len(sys.argv) > 2:
   source_folder = sys.argv[1]
@@ -40,7 +39,7 @@ if len(sys.argv) > 2:
       name = date + '-' + f'{date_counts[key]:02d}' + '.jpg'
       source_file = source_folder + file_list[i]
       dest_file = dest_folder + name
-      copyfile(source_file, dest_file)
+      rename(source_file, dest_file)
       print(source_file + ' -> ' + dest_file)
     else:
       print('could not parse date in file ' + file_list[i])
