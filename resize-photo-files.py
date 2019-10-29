@@ -33,14 +33,20 @@ if len(sys.argv) > 2:
       month = m.group(2)
       day = m.group(3)
     else:
-      m = re.match(r'^(\d{2})(\d{2})(\d{2})', file_list[i])
+      m = re.match(r'^(\d{2})(\d{2})(\d{2})\d{4}', file_list[i])
       if m is not None:
         month = m.group(1)
         day = m.group(2)
         year = '20' + m.group(3)
       else:
-        print('could not parse date in file ' + file_list[i])
-        continue
+        m = re.match(r'^(\d{4})(\d{2})(\d{2})_', file_list[i])
+        if m is not None:
+          year = m.group(1)
+          month = m.group(2)
+          day = m.group(3)
+        else:
+          print('could not parse date in file ' + file_list[i])
+          continue
     date = year + '-' + month + '-' + day
     # print('date ' + date)
     key = year + month + day
