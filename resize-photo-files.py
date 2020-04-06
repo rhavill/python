@@ -4,12 +4,16 @@
 	This script resizes image files in a directory and copies them to another
   directory. The original image file names may be from a few photo file name
   formats. The destination file names have a YYYY-MM-DD-NN.jpg format. 
+
+  To set up dependencies, run:
+
+  sudo pip3 install python-resize-image
 '''
 
 import re
 import sys
 from os import walk, rename
-from PIL import Image, ExifTags
+from PIL import Image#, ExifTags
 from resizeimage import resizeimage
 
 if len(sys.argv) > 2:
@@ -64,16 +68,16 @@ if len(sys.argv) > 2:
 
     img = resizeimage.resize_width(img, 1024)
 
-    for orientation in ExifTags.TAGS.keys():
-        if ExifTags.TAGS[orientation]=='Orientation':
-            break
-    exif=dict(img.getexif().items())
-    if exif[orientation] == 3:
-        image=img.rotate(180, expand=True)
-    elif exif[orientation] == 6:
-        img=img.rotate(270, expand=True)
-    elif exif[orientation] == 8:
-        img=image.rotate(90, expand=True)
+    # for orientation in ExifTags.TAGS.keys():
+    #     if ExifTags.TAGS[orientation]=='Orientation':
+    #         break
+    # exif=dict(img.getexif().items())
+    # if exif[orientation] == 3:
+    #     image=img.rotate(180, expand=True)
+    # elif exif[orientation] == 6:
+    #     img=img.rotate(270, expand=True)
+    # elif exif[orientation] == 8:
+    #     img=image.rotate(90, expand=True)
     img.save(dest_file, img.format)
     img.close()
     print(f'{source_file} ({width}x{height}) -> {dest_file}')
