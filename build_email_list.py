@@ -34,11 +34,11 @@ for key in emails_by_file:
 all_emails.sort()
 
 # print email addresses that were excluded from one or more files
-# print(" ")
-# for email in all_emails:
-#   for key in emails_by_file:
-#     if email not in emails_by_file[key]:
-#       print(email, "not in", key)
+print(" ")
+for email in all_emails:
+  for key in emails_by_file:
+    if email not in emails_by_file[key]:
+      print(email, "not in", key)
 
 print("\nTotal:", len(all_emails))
 #102
